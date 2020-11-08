@@ -23,13 +23,16 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: {
       posts: data.contents,
     },
+    // revalidateで指定した秒数の間は静的アセットを返す
+    // 秒数が経過したら、次のリクエストで一旦はキャッシュを返しつつ、バックグラウンドでもう一度そのページを構築
+    revalidate: 10, 
   };
 };
 
-const Posts: NextPage<Props> = props => {
+export default function Posts({ posts }) {
   return (
     <>
-      {props.posts.map(post => (
+      {posts.map(post => (
         <ul key={post.id}>
           <li>
             <Link href={`posts/${post.id}`}>
@@ -42,4 +45,3 @@ const Posts: NextPage<Props> = props => {
   );
 }
 
-export default Posts
