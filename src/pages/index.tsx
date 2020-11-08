@@ -1,8 +1,47 @@
-import { NextPage } from 'next'
-import styles from '../layouts/index.module.css'
+import * as React from 'react';
+import { NextPage } from 'next';
+import { GetStaticProps } from "next";
+import Link from 'next/link';
+import { Api } from '../types/api';
 
-const Index: NextPage = () => {
-  return <h1 className={styles.heading}>isr_blog</h1>
+type Props = {
+  // Api型の配列
+  posts: Api[];
+};
+
+// propsを作成
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  // api key
+  const key = {
+    headers: {'X-API-KEY': process.env.API_KEY},
+  };
+  // post一覧を取得
+  const data = await fetch("https://isrbrog.microcms.io/api/v1/posts", key)
+    .then(res => res.json())
+    .catch(() => null);
+  return {
+    props: {
+      posts: data.contents,
+    },
+    // revalidateで指定した秒数の間は静的アセットを返す
+    // 秒数が経過したら、次のリクエストで一旦はキャッシュを返しつつ、バックグラウンドでもう一度そのページを構築
+    revalidate: 10, 
+  };
+};
+
+export default function Posts({ posts }) {
+  return (
+    <>
+      {posts.map(post => (
+        <ul key={post.id}>
+          <li>
+            <Link href={`posts/${post.id}`}>
+              <a>{post.title}</a>
+            </Link>
+          </li>
+        </ul>
+      ))}
+    </>
+  );
 }
 
-export default Index
