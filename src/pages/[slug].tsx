@@ -9,6 +9,9 @@ type Props = {
 };
 
 // propsを作成
+// 引数には動的パラメータを含むコンテキストが渡される
+// ブログ記事一覧を表示するページの場合、getStaticProps内で記事一覧を取得するAPIを叩き、
+// ページに表示するコンポーネントに記事データをProps経由で渡すことで、ビルド時に生成されるHTMLに記事データが含まれるようになる
 export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
   return {
     props: {
@@ -24,7 +27,8 @@ export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
 // パスを返却
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: ["/hoge"],
+    // ISRではpathsは空配列で良い
+    paths: [],
     // fallback: trueでpathsに指定しなかったパスも、getStaticPropsの内容に沿って作成
     fallback: true,
   };
