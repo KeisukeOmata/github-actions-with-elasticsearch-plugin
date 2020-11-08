@@ -7,7 +7,6 @@ import { Api } from '../types/api';
 type Props = {
   // Api型の配列
   posts: Api[];
-  time: number;
 };
 
 // propsを作成
@@ -23,7 +22,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       posts: data.contents,
-      time: Date.now() as number,
     },
   };
 };
@@ -40,7 +38,6 @@ const Posts: NextPage<Props> = props => {
           </li>
         </ul>
       ))}
-      <div>{props.time}</div>
     </>
   );
 }

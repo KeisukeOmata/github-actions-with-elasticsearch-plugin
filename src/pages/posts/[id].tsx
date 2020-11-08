@@ -12,19 +12,6 @@ const key = {
   headers: {'X-API-KEY': process.env.API_KEY},
 };
 
-// // パスを返却
-// export const getStaticPaths = async () => {
-//   const data = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
-//     .then(res => res.json())
-//     .catch(() => null);
-//   // パスを作成
-//   const paths = data.contents.map(content => `/posts/${content.id}`);
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// };
-
 // パスを返却
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
