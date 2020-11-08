@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { NextPage } from 'next'
-import { GetStaticProps } from "next";
+import { GetStaticProps, GetStaticPaths } from "next";
 import { Api } from '../../types/api';
 
 type Props = {
@@ -12,18 +12,28 @@ const key = {
   headers: {'X-API-KEY': process.env.API_KEY},
 };
 
+// // パスを返却
+// export const getStaticPaths = async () => {
+//   const data = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
+//     .then(res => res.json())
+//     .catch(() => null);
+//   // パスを作成
+//   const paths = data.contents.map(content => `/posts/${content.id}`);
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
+
 // パスを返却
-export const getStaticPaths = async () => {
-  const data = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
-    .then(res => res.json())
-    .catch(() => null);
-  // パスを作成
-  const paths = data.contents.map(content => `/posts/${content.id}`);
+export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths,
-    fallback: false,
-  };
-};
+    // ISRではpathsは空配列で良い
+    paths: [],
+    // fallback: trueでpathsに指定しなかったパスも、getStaticPropsの内容に沿って作成
+    fallback: true,
+  }
+}
 
 // propsを作成
 // 引数には動的パラメータを含むコンテキストが渡される
@@ -36,18 +46,22 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
     props: {
       post: data,
     },
+    // revalidateで指定した秒数の間は静的アセットを返す
+    // 秒数が経過したら、次のリクエストで一旦はキャッシュを返しつつ、バックグラウンドでもう一度そのページを構築
+    // 1秒ごとにブログ記事を読み込む
+    revalidate: 1,
   };
 };
 
-const Post: NextPage<Props> = ({ post }) => {
+const Post: NextPage<Props> = props => {
   return (
     <main>
-      <h1>{post.title}</h1>
-      <p>{post.publishedAt}</p>
+      <h1>{props.post.title}</h1>
+      <p>{props.post.publishedAt}</p>
       {/* コードからHTMLを設定することはXSS攻撃の温床となるため、dangerouslySetInnerHTMLを使う */}
       <div
         dangerouslySetInnerHTML={{
-          __html: `${post.body}`,
+          __html: `${props.post.body}`,
         }}
       />
     </main>
