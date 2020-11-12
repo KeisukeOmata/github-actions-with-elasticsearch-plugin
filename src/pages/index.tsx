@@ -7,7 +7,6 @@ import { Api } from '../types/api';
 type Props = {
   // Api型の配列
   posts: Api[];
-  time: number;
 };
 
 // propsを作成
@@ -23,7 +22,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       posts: data.contents,
-      time: Date.now() as number,
     },
     // revalidateで指定した秒数の間は静的アセットを返す
     // 秒数が経過したら、次のリクエストで一旦はキャッシュを返しつつ、バックグラウンドでもう一度そのページを構築
@@ -31,10 +29,10 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   };
 };
 
-export default function Posts( props ) {
+export default function Posts({ posts }) {
   return (
     <>
-      {props.posts.map(post => (
+      {posts.map(post => (
         <ul key={post.id}>
           <li>
             <Link href={`posts/${post.id}`}>
@@ -43,7 +41,6 @@ export default function Posts( props ) {
           </li>
         </ul>
       ))}
-      <div>{props.time}</div>
     </>
   );
 }
