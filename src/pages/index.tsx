@@ -1,47 +1,31 @@
-import * as React from 'react';
-import { NextPage } from 'next';
-import { GetStaticProps } from "next";
 import Link from 'next/link';
-import { Api } from '../types/api';
 
-type Props = {
-  // Api型の配列
-  posts: Api[];
-};
-
-// propsを作成
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  // api key
-  const key = {
-    headers: {'X-API-KEY': process.env.API_KEY},
-  };
-  // post一覧を取得
-  const data = await fetch("https://isrbrog.microcms.io/api/v1/posts", key)
-    .then(res => res.json())
-    .catch(() => null);
-  return {
-    props: {
-      posts: data.contents,
-    },
-    // revalidateで指定した秒数の間は静的アセットを返す
-    // 秒数が経過したら、次のリクエストで一旦はキャッシュを返しつつ、バックグラウンドでもう一度そのページを構築
-    revalidate: 10, 
-  };
-};
-
-export default function Posts({ posts }) {
+export default function Home({ blog }) {
   return (
-    <>
-      {posts.map(post => (
-        <ul key={post.id}>
-          <li>
-            <Link href={`posts/${post.id}`}>
-              <a>{post.title}</a>
+    <div>
+      {blog.map(blog => (
+        <ul key={blog.id}>
+          <li >
+            <Link href={`posts/${blog.id}`}>
+              <a>{blog.title}</a>
             </Link>
           </li>
         </ul>
       ))}
-    </>
+    </div>
   );
 }
 
+export const getStaticProps = async () => {
+  const key = {
+    headers: {'X-API-KEY': process.env.API_KEY},
+  };
+  const data = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
+    .then(res => res.json())
+    .catch(() => null);
+  return {
+    props: {
+      blog: data.contents,
+    },
+  };
+};
