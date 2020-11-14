@@ -30,7 +30,7 @@ export const getStaticProps = async () => {
   const data: Api[] = await res.data.contents;
   return {
     props: {
-      posts: data,
+      posts: JSON.parse(JSON.stringify(data)),
     },
   };
 };
