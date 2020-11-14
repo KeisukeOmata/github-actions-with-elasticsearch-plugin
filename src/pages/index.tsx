@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
-export default function Home({ blog }) {
+export default function Home({ post }) {
   return (
     <div>
-      {blog.map(blog => (
+      {post.map(blog => (
         <ul key={blog.id}>
           <li >
             <Link href={`posts/${blog.id}`}>
