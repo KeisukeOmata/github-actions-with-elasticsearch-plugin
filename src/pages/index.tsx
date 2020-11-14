@@ -11,9 +11,9 @@ const PostPage: NextPage<Props> = ({ posts }) => {
   return (
     <div>
       {posts.map(blog => (
-        <ul key={blog.id}>
+        <ul key={blog.title}>
           <li >
-            <Link href={`posts/${blog.id}`}>
+            <Link href={`posts/${blog.title}`}>
               <a>{blog.title}</a>
             </Link>
           </li>
@@ -25,12 +25,12 @@ const PostPage: NextPage<Props> = ({ posts }) => {
 
 export const getStaticProps = async () => {
   const res = await axiosInstance.get(
-    `https://isrbrog.microcms.io/api/v1/posts`,
+    `https://hn.algolia.com/api/v1/search?query=react`,
   );
-  const data: Api[] = await res.data.contents;
+  const data: Api[] = await res.data.hits;
   return {
     props: {
-      posts: JSON.parse(JSON.stringify(data)),
+      posts: data,
     },
   };
 };
