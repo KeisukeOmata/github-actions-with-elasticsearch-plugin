@@ -1,9 +1,16 @@
 import Link from 'next/link';
+import { NextPage } from 'next';
+import { axiosInstance } from '../foundations/lib/api';
+import { Api } from '../types/api';
 
-export default function Home({ blog }) {
+type Props = {
+  posts: Api[];
+};
+
+const PostPage: NextPage<Props> = ({ posts }) => {
   return (
     <div>
-      {blog.map(blog => (
+      {posts.map(blog => (
         <ul key={blog.id}>
           <li >
             <Link href={`posts/${blog.id}`}>
@@ -17,15 +24,15 @@ export default function Home({ blog }) {
 }
 
 export const getStaticProps = async () => {
-  const key = {
-    headers: {'X-API-KEY': process.env.API_KEY},
-  };
-  const data = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
-    .then(res => res.json())
-    .catch(() => null);
+  const res = await axiosInstance.get(
+    `https://isrbrog.microcms.io/api/v1/posts`,
+  );
+  const data: Api[] = await res.data.contents;
   return {
     props: {
-      blog: data.contents,
+      posts: data,
     },
   };
 };
+
+export default PostPage;
