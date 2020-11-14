@@ -1,27 +1,31 @@
-function Blog({ posts }) {
+import Link from 'next/link';
+
+export default function Home({ blog }) {
   return (
-    <ul>
-      {posts.map((post) => (
-        <li>{post.title}</li>
+    <div>
+      {blog.map(blog => (
+        <ul key={blog.id}>
+          <li >
+            <Link href={`posts/${blog.id}`}>
+              <a>{blog.title}</a>
+            </Link>
+          </li>
+        </ul>
       ))}
-    </ul>
-  )
+    </div>
+  );
 }
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const key = {
     headers: {'X-API-KEY': process.env.API_KEY},
   };
-  const res = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
-  const postsContents = await res.json()
-  const posts = postsContents.contents
-
+  const data = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
+    .then(res => res.json())
+    .catch(() => null);
   return {
     props: {
-      posts: JSON.parse(JSON.stringify(posts)),
+      blog: data.contents,
     },
-    revalidate: 1,
-  }
-}
-
-export default Blog
+  };
+};
