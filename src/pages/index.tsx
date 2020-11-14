@@ -14,12 +14,11 @@ export async function getStaticProps() {
   };
   const res = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
   const postsContents = await res.json()
-  const postsParse = postsContents.contents
-  const posts = JSON.parse(JSON.stringify(postsParse))
+  const posts = postsContents.contents
 
   return {
     props: {
-      posts: posts
+      posts: JSON.parse(JSON.stringify(posts)),
     },
     revalidate: 1,
   }
