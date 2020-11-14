@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { NextPage } from 'next';
 import { GetStaticProps } from "next";
 import Link from 'next/link';
 import { Api } from '../types/api';
 
 type Props = {
   // Api型の配列
-  posts: Api[];
+  data: Api[];
 };
 
 // propsを作成
@@ -21,7 +20,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     .catch(() => null);
   return {
     props: {
-      posts: data.contents,
+      data,
     },
     // revalidateで指定した秒数の間は静的アセットを返す
     // 秒数が経過したら、次のリクエストで一旦はキャッシュを返しつつ、バックグラウンドでもう一度そのページを構築
@@ -29,10 +28,10 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   };
 };
 
-export default function Posts({ posts }) {
+export default function Posts({ data }) {
   return (
     <>
-      {posts.map(post => (
+      {data.contents.map(post => (
         <ul key={post.id}>
           <li>
             <Link href={`posts/${post.id}`}>
