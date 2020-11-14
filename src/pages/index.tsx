@@ -1,33 +1,31 @@
-import * as React from 'react';
-import { GetStaticProps } from "next";
 import Link from 'next/link';
-import { Api } from '../types/api';
 
-export async function getStaticProps() {
-  // api key
+export default function Home({ blog }) {
+  return (
+    <div>
+      {blog.map(blog => (
+        <ul key={blog.id}>
+          <li >
+            <Link href={`blog/${blog.id}`}>
+              <a>{blog.title}</a>
+            </Link>
+          </li>
+        </ul>
+      ))}
+    </div>
+  );
+}
+
+export const getStaticProps = async () => {
   const key = {
     headers: {'X-API-KEY': process.env.API_KEY},
   };
-  const res = await fetch("https://isrbrog.microcms.io/api/v1/posts", key)
-  const postsContents = await res.json()
-  const posts = postsContents.contents
-
+  const data = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
+    .then(res => res.json())
+    .catch(() => null);
   return {
     props: {
-      posts,
+      blog: data.contents,
     },
-    revalidate: 1,
-  }
-}
-
-function Blog({ posts }) {
-  return (
-    <ul>
-      {posts.map((post) => (
-        <li>{post.title}</li>
-      ))}
-    </ul>
-  )
-}
-
-export default Blog
+  };
+};
