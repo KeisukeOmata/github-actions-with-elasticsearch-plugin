@@ -14,15 +14,15 @@ export async function getStaticProps() {
   };
   const res = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
   const postsContents = await res.json()
-  const posts = postsContents.contents
+  const postsParse = postsContents.contents
+  const posts = JSON.parse(JSON.stringify(postsParse))
 
   return {
     props: {
-      posts: JSON.parse(JSON.stringify(posts)),
+      posts: posts
     },
     revalidate: 1,
   }
-
 }
 
 export default Blog
