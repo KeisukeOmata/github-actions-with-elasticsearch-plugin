@@ -3,35 +3,27 @@ import { GetStaticProps } from "next";
 import Link from 'next/link';
 import { Api } from '../types/api';
 
-type Props = {
-  // Api型の配列
-  data: Api[];
-};
-
-// propsを作成
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export async function getStaticProps() {
   // api key
   const key = {
     headers: {'X-API-KEY': process.env.API_KEY},
   };
-  // post一覧を取得
-  const data = await fetch("https://isrbrog.microcms.io/api/v1/posts", key)
-    .then(res => res.json())
-    .catch(() => null);
+  const res = await fetch("https://isrbrog.microcms.io/api/v1/posts", key)
+  const postsContents = await res.json()
+  const posts = postsContents.contents
+
   return {
     props: {
-      data,
+      posts,
     },
-    // revalidateで指定した秒数の間は静的アセットを返す
-    // 秒数が経過したら、次のリクエストで一旦はキャッシュを返しつつ、バックグラウンドでもう一度そのページを構築
-    revalidate: 10, 
-  };
-};
+    revalidate: 1,
+  }
+}
 
-export default function Posts({ data }) {
+function Blog({ posts }) {
   return (
     <>
-      {data.contents.map(post => (
+      {posts.map((post) => (
         <ul key={post.id}>
           <li>
             <Link href={`posts/${post.id}`}>
@@ -41,6 +33,7 @@ export default function Posts({ data }) {
         </ul>
       ))}
     </>
-  );
+  )
 }
 
+export default Blog
