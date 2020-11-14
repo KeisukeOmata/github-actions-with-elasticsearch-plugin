@@ -17,15 +17,18 @@ export default function Home({ blog }) {
 }
 
 export const getStaticProps = async () => {
-  const key = {
-    headers: {'X-API-KEY': process.env.API_KEY},
-  };
-  const data = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
-    .then(res => res.json())
-    .catch(() => null);
-  return {
-    props: {
-      blog: data.contents,
-    },
-  };
-};
+  try {
+    const key = {
+      headers: {'X-API-KEY': process.env.API_KEY},
+    };
+    const result = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
+    const postContents = await result.json()
+    const post = postContents.contents
+    return {
+      props: { post },
+      revalidate: 60,
+    }
+  } catch (e) {
+    console.log({ e })
+  }
+}
