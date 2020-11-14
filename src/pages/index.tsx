@@ -18,10 +18,11 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts: posts || null,
+      posts: JSON.parse(JSON.stringify(posts)),
     },
     revalidate: 1,
   }
+
 }
 
 export default Blog
