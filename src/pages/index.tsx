@@ -22,17 +22,11 @@ export async function getStaticProps() {
 
 function Blog({ posts }) {
   return (
-    <>
+    <ul>
       {posts.map((post) => (
-        <ul key={post.id}>
-          <li>
-            <Link href={`posts/${post.id}`}>
-              <a>{post.title}</a>
-            </Link>
-          </li>
-        </ul>
+        <li>{post.title}</li>
       ))}
-    </>
+    </ul>
   )
 }
 
