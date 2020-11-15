@@ -2,10 +2,19 @@ import { NextPage } from 'next'
 import { GetStaticProps, GetStaticPaths } from "next";
 import { Api } from '../../types/api';
 import styles from '../../layouts/index.module.scss'
-import  Page   from '../../components/page'
 
 type Props = {
   blog: Api;
+};
+
+export type Api2 = {
+  id: string;
+  title: string;
+  body: string;
+  publishedAt?: Date;
+  category: {
+    name: string
+  };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -37,21 +46,21 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   };
 };
 
-const BlogId: NextPage<Props> = ({ blog }) => {
+export default (props: Api2) => {
+// const BlogId: NextPage<Props> = ({ blog }) => {
   return (
-      <Page children={blog} />
-    // <main className={styles.main}>
-    //   <h1 className={styles.title}>{blog.title}</h1>
-    //   <p className={styles.publishedAt}>{blog.publishedAt}</p>
-    //   <p className={styles.category}>{blog.category.name}</p>
-    //   <div
-    //     dangerouslySetInnerHTML={{
-    //       __html: `${blog.body}`,
-    //     }}
-    //     className={styles.post}
-    //   />
-    // </main>
+    <main className={styles.main}>
+      <h1 className={styles.title}>{props.title}</h1>
+      <p className={styles.publishedAt}>{props.publishedAt}</p>
+      {/* <p className={styles.category}>{props.category.name}</p> */}
+      <div
+        dangerouslySetInnerHTML={{
+          __html: `${props.body}`,
+        }}
+        className={styles.post}
+      />
+    </main>
   );
 }
 
-export default BlogId
+// export default BlogId
