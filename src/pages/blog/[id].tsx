@@ -51,4 +51,5 @@ const BlogId: NextPage<Props> = ({ blog }) => {
     </main>
   );
 }
+
 export default BlogId
