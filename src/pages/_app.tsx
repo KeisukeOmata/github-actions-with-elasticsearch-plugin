@@ -1,4 +1,5 @@
 import '../layouts/globals.css'
+import 'minireset.css'
 
 function MyApp({ Component, pageProps }) {
   return (
