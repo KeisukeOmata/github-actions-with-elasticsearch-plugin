@@ -15,7 +15,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     .then(res => res.json())
     .catch(() => null);
   const paths = data.contents.map(content => `/blog/${content.id}`);
-  return {paths, fallback: false};
+  return {paths, fallback: true};
 };
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
