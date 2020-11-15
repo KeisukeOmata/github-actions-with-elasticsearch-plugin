@@ -1,3 +1,5 @@
+import styles from '../../layouts/index.module.scss'
+
 export const getStaticPaths = async () => {
   const key = {
     headers: {'X-API-KEY': process.env.API_KEY},
@@ -26,13 +28,14 @@ export const getStaticProps = async context => {
 
 export default function BlogId({ blog }) {
   return (
-    <main>
-      <h1>{blog.title}</h1>
-      <p>{blog.publishedAt}</p>
+    <main className={styles.main}>
+      <h1 className={styles.title}>{blog.title}</h1>
+      <p className={styles.publishedAt}>{blog.publishedAt}</p>
       <div
         dangerouslySetInnerHTML={{
           __html: `${blog.body}`,
         }}
+        className={styles.post}
       />
     </main>
   );
