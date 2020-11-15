@@ -1,6 +1,12 @@
+import { GetStaticProps, GetStaticPaths } from "next";
+import { Api } from '../../types/api';
 import styles from '../../layouts/index.module.scss'
 
-export const getStaticPaths = async () => {
+type Props = {
+  blog: Api;
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
   const key = {
     headers: {'X-API-KEY': process.env.API_KEY},
   };
@@ -11,7 +17,7 @@ export const getStaticPaths = async () => {
   return {paths, fallback: false};
 };
 
-export const getStaticProps = async context => {
+export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const id = context.params.id;
   const key = {
     headers: {'X-API-KEY': process.env.API_KEY},

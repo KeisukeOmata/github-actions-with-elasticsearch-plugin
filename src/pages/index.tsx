@@ -1,6 +1,13 @@
-import Link from 'next/link';
+import Link from 'next/link'
+import { GetStaticProps } from "next";
+import { Api } from '../types/api';
 
-export const getStaticProps = async () => {
+type Props = {
+  // Api型の配列
+  blog: Api[];
+};
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const key = {
     headers: {'X-API-KEY': process.env.API_KEY},
   };
