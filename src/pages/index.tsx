@@ -19,6 +19,9 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: {
       blog: data.contents,
     },
+    // revalidateで指定した秒数の間は静的アセットを返す
+    // 秒数が経過したら、次のリクエストで一旦はキャッシュを返しつつ、バックグラウンドでもう一度そのページを構築
+    revalidate: 1,
   };
 };
 
