@@ -7,16 +7,25 @@ type Props = {
   blog: Api;
 };
 
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const key = {
+//     headers: {'X-API-KEY': process.env.API_KEY},
+//   };
+//   const data = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
+//     .then(res => res.json())
+//     .catch(() => null);
+//   const paths = data.contents.map(content => `/blog/${content.id}`);
+//   return {paths, fallback: false};
+// };
+
 export const getStaticPaths: GetStaticPaths = async () => {
-  const key = {
-    headers: {'X-API-KEY': process.env.API_KEY},
-  };
-  const data = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
-    .then(res => res.json())
-    .catch(() => null);
-  const paths = data.contents.map(content => `/blog/${content.id}`);
-  return {paths, fallback: false};
-};
+  return {
+    // ISRではpathsは空配列で良い
+    paths: [],
+    // fallback: trueでpathsに指定しなかったパスも、getStaticPropsの内容に沿って作成
+    fallback: true,
+  }
+}
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const id = context.params.id;
