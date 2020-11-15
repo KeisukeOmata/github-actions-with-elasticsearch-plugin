@@ -7,7 +7,6 @@ type Props = {
   // Api型の配列
   blog: Api[];
 };
-
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const key = {
     headers: {'X-API-KEY': process.env.API_KEY},
@@ -40,5 +39,4 @@ const Home: NextPage<Props> = ({ blog }) => {
     </>
   );
 }
-
 export default Home

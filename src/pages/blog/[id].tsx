@@ -4,26 +4,8 @@ import { Api } from '../../types/api';
 import styles from '../../layouts/index.module.scss'
 
 type Props = {
-  data: {
-    id: string;
-    title: string;
-    body: string;
-    publishedAt?: Date;
-    category: {
-      name: string
-    };
-  };
+  blog: Api;
 };
-
-// export type Api2 = {
-//   id: string;
-//   title: string;
-//   body: string;
-//   publishedAt?: Date;
-//   category: {
-//     name: string
-//   };
-// };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const key = {
@@ -33,7 +15,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     .then(res => res.json())
     .catch(() => null);
   const paths = data.contents.map(content => `/blog/${content.id}`);
-  return {paths, fallback: true};
+  return {paths, fallback: false};
 };
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
@@ -46,7 +28,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
     .catch(() => null);
   return {
     props: {
-      data,
+      blog: data,
     },
     // revalidateで指定した秒数の間は静的アセットを返す
     // 秒数が経過したら、次のリクエストで一旦はキャッシュを返しつつ、バックグラウンドでもう一度そのページを構築
@@ -54,22 +36,19 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   };
 };
 
-export default (props: Props) => {
-  { console.log(props)}
-// const BlogId: NextPage<Props> = ({ blog }) => {
+const BlogId: NextPage<Props> = ({ blog }) => {
   return (
     <main className={styles.main}>
-      <h1 className={styles.title}>{props.data.title}</h1>
-      {/* <p className={styles.publishedAt}>{props.publishedAt}</p> */}
-      {/* <p className={styles.category}>{props.category.name}</p> */}
-      {/* <div
+      <h1 className={styles.title}>{blog.title}</h1>
+      <p className={styles.publishedAt}>{blog.publishedAt}</p>
+      <p className={styles.category}>{blog.category.name}</p>
+      <div
         dangerouslySetInnerHTML={{
-          __html: `${props.body}`,
+          __html: `${blog.body}`,
         }}
         className={styles.post}
-      /> */}
+      />
     </main>
   );
 }
-
-// export default BlogId
+export default BlogId
