@@ -2,6 +2,7 @@ import { NextPage } from 'next'
 import { GetStaticProps, GetStaticPaths } from "next";
 import { Api } from '../../types/api';
 import styles from '../../layouts/index.module.scss'
+import  Page   from '../../components/page'
 
 type Props = {
   blog: Api;
@@ -38,17 +39,18 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 
 const BlogId: NextPage<Props> = ({ blog }) => {
   return (
-    <main className={styles.main}>
-      <h1 className={styles.title}>{blog.title}</h1>
-      <p className={styles.publishedAt}>{blog.publishedAt}</p>
-      <p className={styles.category}>{blog.category.name}</p>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `${blog.body}`,
-        }}
-        className={styles.post}
-      />
-    </main>
+      <Page children={blog} />
+    // <main className={styles.main}>
+    //   <h1 className={styles.title}>{blog.title}</h1>
+    //   <p className={styles.publishedAt}>{blog.publishedAt}</p>
+    //   <p className={styles.category}>{blog.category.name}</p>
+    //   <div
+    //     dangerouslySetInnerHTML={{
+    //       __html: `${blog.body}`,
+    //     }}
+    //     className={styles.post}
+    //   />
+    // </main>
   );
 }
 
