@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { NextPage } from 'next'
 import { GetStaticProps } from "next";
 import { Api } from '../types/api';
 
@@ -21,9 +22,9 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   };
 };
 
-export default function Home({ blog }) {
+const Home: NextPage<Props> = ({ blog }) => {
   return (
-    <div>
+    <>
       {blog.map(blog => (
         <ul key={blog.id}>
           <li >
@@ -33,6 +34,8 @@ export default function Home({ blog }) {
           </li>
         </ul>
       ))}
-    </div>
+    </>
   );
 }
+
+export default Home
