@@ -17,8 +17,9 @@ export default function Home({ blog }) {
 }
 
 export const getStaticProps = async () => {
+  const apiKey = `${process.env.API_KEY}`
   const key = {
-    headers: {'X-API-KEY': `${process.env.API_KEY}`},
+    headers: {'X-API-KEY': apiKey},
   };
   const data = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
     .then(res => res.json())
