@@ -46,19 +46,20 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   };
 };
 
-export default (props: Api2) => {
+export default (props: Props) => {
+  { console.log(props.blog)}
 // const BlogId: NextPage<Props> = ({ blog }) => {
   return (
     <main className={styles.main}>
-      <h1 className={styles.title}>{props.title}</h1>
-      <p className={styles.publishedAt}>{props.publishedAt}</p>
+      <h1 className={styles.title}>{props.blog.title}</h1>
+      {/* <p className={styles.publishedAt}>{props.publishedAt}</p> */}
       {/* <p className={styles.category}>{props.category.name}</p> */}
-      <div
+      {/* <div
         dangerouslySetInnerHTML={{
           __html: `${props.body}`,
         }}
         className={styles.post}
-      />
+      /> */}
     </main>
   );
 }
