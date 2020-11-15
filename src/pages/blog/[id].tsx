@@ -15,15 +15,15 @@ type Props = {
   };
 };
 
-export type Api2 = {
-  id: string;
-  title: string;
-  body: string;
-  publishedAt?: Date;
-  category: {
-    name: string
-  };
-};
+// export type Api2 = {
+//   id: string;
+//   title: string;
+//   body: string;
+//   publishedAt?: Date;
+//   category: {
+//     name: string
+//   };
+// };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const key = {
