@@ -1,3 +1,4 @@
+import { NextPage } from 'next'
 import { GetStaticProps, GetStaticPaths } from "next";
 import { Api } from '../../types/api';
 import styles from '../../layouts/index.module.scss'
@@ -32,7 +33,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   };
 };
 
-export default function BlogId({ blog }) {
+const BlogId: NextPage<Props> = ({ blog }) => {
   return (
     <main className={styles.main}>
       <h1 className={styles.title}>{blog.title}</h1>
@@ -47,3 +48,5 @@ export default function BlogId({ blog }) {
     </main>
   );
 }
+
+export default BlogId
