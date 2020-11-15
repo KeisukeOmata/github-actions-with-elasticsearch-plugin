@@ -1,13 +1,8 @@
 import { NextPage } from 'next'
 import { GetStaticProps, GetStaticPaths } from "next";
-import { Api } from '../../types/api';
 import styles from '../../layouts/index.module.scss'
 
-type Props = {
-  blog: Api;
-};
-
-export type Api2 = {
+type Api = {
   id: string;
   title: string;
   body: string;
@@ -15,6 +10,10 @@ export type Api2 = {
   category: {
     name: string
   };
+};
+
+type Props = {
+  blog: Api;
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
