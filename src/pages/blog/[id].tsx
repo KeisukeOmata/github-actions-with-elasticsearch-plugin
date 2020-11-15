@@ -19,11 +19,16 @@ type Props = {
 // };
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const key = {
+    headers: {'X-API-KEY': process.env.API_KEY},
+  };
+  const data = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
+    .then(res => res.json())
+    .catch(() => null);
+  // パスを作成
+  const paths = data.contents.map(content => `/blog/${content.id}`);
   return {
-    paths: [
-      { params: { id: 'idrwqpbndv' } },
-    ],
-    // fallback: trueでpathsに指定しなかったパスも、getStaticPropsの内容に沿って作成
+    paths,
     fallback: true,
   };
 };
