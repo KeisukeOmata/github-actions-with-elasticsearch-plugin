@@ -7,17 +7,6 @@ type Props = {
   blog: Api;
 };
 
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   const key = {
-//     headers: {'X-API-KEY': process.env.API_KEY},
-//   };
-//   const data = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
-//     .then(res => res.json())
-//     .catch(() => null);
-//   const paths = data.contents.map(content => `/blog/${content.id}`);
-//   return {paths, fallback: false};
-// };
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const key = {
     headers: {'X-API-KEY': process.env.API_KEY},
@@ -25,12 +14,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const data = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
     .then(res => res.json())
     .catch(() => null);
-  // パスを作成
   const paths = data.contents.map(content => `/blog/${content.id}`);
-  return {
-    paths,
-    fallback: true,
-  };
+  return {paths, fallback: true};
 };
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
