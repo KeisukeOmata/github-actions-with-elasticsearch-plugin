@@ -1,8 +1,21 @@
 import { NextPage } from 'next'
 import { GetStaticProps, GetStaticPaths } from "next";
+import { Api } from '../../types/api';
 import styles from '../../layouts/index.module.scss'
 
-type Api = {
+type Props = {
+  data: {
+    id: string;
+    title: string;
+    body: string;
+    publishedAt?: Date;
+    category: {
+      name: string
+    };
+  };
+};
+
+export type Api2 = {
   id: string;
   title: string;
   body: string;
@@ -10,10 +23,6 @@ type Api = {
   category: {
     name: string
   };
-};
-
-type Props = {
-  blog: Api;
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -37,7 +46,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
     .catch(() => null);
   return {
     props: {
-      blog: data,
+      data,
     },
     // revalidateで指定した秒数の間は静的アセットを返す
     // 秒数が経過したら、次のリクエストで一旦はキャッシュを返しつつ、バックグラウンドでもう一度そのページを構築
@@ -46,11 +55,11 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 };
 
 export default (props: Props) => {
-  { console.log(props.blog)}
+  { console.log(props)}
 // const BlogId: NextPage<Props> = ({ blog }) => {
   return (
     <main className={styles.main}>
-      <h1 className={styles.title}>{props.blog.title}</h1>
+      <h1 className={styles.title}>{props.data.title}</h1>
       {/* <p className={styles.publishedAt}>{props.publishedAt}</p> */}
       {/* <p className={styles.category}>{props.category.name}</p> */}
       {/* <div
