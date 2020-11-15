@@ -20,12 +20,13 @@ type Props = {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    // ISRではpathsは空配列で良い
-    paths: [],
+    paths: [
+      { params: { id: 'idrwqpbndv' } },
+    ],
     // fallback: trueでpathsに指定しなかったパスも、getStaticPropsの内容に沿って作成
     fallback: true,
-  }
-}
+  };
+};
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const id = context.params.id;
