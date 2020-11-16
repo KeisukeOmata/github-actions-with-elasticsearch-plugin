@@ -17,6 +17,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   //   .catch(() => null);
   // const paths = data.contents.map(content => `/blog/${content.id}`);
   return {
+    // ISRではpathsは空配列で良い
     paths: [],
     // fallback: false      => SSRしない。そのpathに対するページは存在しないものとする
     // fallback: true       => SSRする。SSRを待っている間はそれ用の画面を表示する
