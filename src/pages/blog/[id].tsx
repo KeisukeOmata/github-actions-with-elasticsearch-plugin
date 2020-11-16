@@ -1,4 +1,5 @@
 import { NextPage } from 'next'
+import { useRouter } from 'next/router'
 import { GetStaticProps, GetStaticPaths } from "next";
 import { Api } from '../../types/api';
 import styles from '../../layouts/index.module.scss'
@@ -15,7 +16,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
     .then(res => res.json())
     .catch(() => null);
   const paths = data.contents.map(content => `/blog/${content.id}`);
-  return {paths, fallback: true};
+  // fallback: failseであればエラーは起きない
+  return { paths, fallback: true };
 };
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
@@ -32,11 +34,18 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
     },
     // revalidateで指定した秒数の間は静的アセットを返す
     // 秒数が経過したら、次のリクエストで一旦はキャッシュを返しつつ、バックグラウンドでもう一度そのページを構築
-    revalidate: 1,
+    revalidate: 10,
   };
 };
 
 const BlogId: NextPage<Props> = ({ blog }) => {
+  const router = useRouter()
+  if (router.isFallback) {
+    // ビルド中なので「blog」は「undefined」のまま
+    return <div>Loading...</div>
+  }
+
+  // 「blog」が参照できる。（blog.titleを参照できる）
   return (
     <main className={styles.main}>
       <h1 className={styles.title}>{blog.title}</h1>
