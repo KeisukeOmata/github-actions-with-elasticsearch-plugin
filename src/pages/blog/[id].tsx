@@ -16,8 +16,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
     .then(res => res.json())
     .catch(() => null);
   const paths = data.contents.map(content => `/blog/${content.id}`);
-  // fallback: failseであればエラーは起きない
-  return { paths, fallback: true };
+  return {
+    paths,
+    // fallback: false      => SSRしない。そのpathに対するページは存在しないものとする
+    // fallback: true       => SSRする。SSRを待っている間はそれ用の画面を表示する
+    // fallback: 'blocking' => SSRする。SSRの間はユーザを待たせる
+    fallback: true,
+  };
 };
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
@@ -40,12 +45,14 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 
 const BlogId: NextPage<Props> = ({ blog }) => {
   const router = useRouter()
+
+  // fallback: 'blocking'であれば不要
   if (router.isFallback) {
-    // ビルド中なので「blog」は「undefined」のまま
+    // ビルド中なのでblogはundefinedのまま
     return <div>Loading...</div>
   }
 
-  // 「blog」が参照できる。（blog.titleを参照できる）
+  // ビルドが完了しblogが参照できる
   return (
     <main className={styles.main}>
       <h1 className={styles.title}>{blog.title}</h1>
