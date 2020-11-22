@@ -34,6 +34,16 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const data = await fetch('https://isrbrog.microcms.io/api/v1/posts/' + id, key)
     .then(res => res.json())
     .catch(() => null);
+  // fallback: false 以外の場合、リダイレクト先が必要
+  if (!data) {
+    return {
+      notFound: true,
+      // redirect: {
+      //   destination: '/',
+      //   permanent: false,
+      // },
+    }
+  }
   return {
     props: {
       blog: data,
