@@ -13,10 +13,10 @@ export const config = {
     //   title: "About",
     //   href: "/about",
     // },
-    // {
-    //   title: "Company",
-    //   href: "",
-    // },
+    {
+      title: "Twitter",
+      href: "https://twitter.com/mete0la",
+    },
     {
       title: "GitHub",
       href: "https://github.com/KeisukeOmata/next_blog",
