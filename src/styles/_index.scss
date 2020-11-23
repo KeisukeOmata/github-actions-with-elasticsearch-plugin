@@ -1,44 +1,25 @@
-.main {
-  width: 960px;
-  margin: 0 auto;
+.home-top {
+  padding: 2.7rem 0 2rem;
 }
-
-.title {
-  margin-bottom: 20px;
+.home-top_title {
+  font-size: 3.1rem;
+  line-height: 1.4;
+  @include mq(xs) {
+    font-size: 2.6rem;
+  }
 }
-
-.publishedAt {
-  margin-bottom: 40px;
+.home-top_description {
+  margin-top: 0.4rem;
+  font-size: 1.2rem;
+  color: var(--color-base-text-lighter);
 }
-
-.category {
-  margin-bottom: 20px;
+.home-section-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.3rem 0;
+  border-bottom: solid 1px var(--color-border);
 }
-
-.post {
-  & > h1 {
-    font-size: 30px;
-    font-weight: bold;
-    margin: 40px 0 20px;
-    background-color: #eee;
-    padding: 10px 20px;
-    border-radius: 5px;
-  }
-
-  & > h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 40px 0 16px;
-    border-bottom: 1px solid #ddd;
-  }
-
-  & > p {
-    line-height: 1.8;
-    letter-spacing: 0.2px;
-  }
-
-  & > ol {
-    list-style-type: decimal;
-    list-style-position: inside;
-  }
+.home-section-title {
+  font-size: 1.7rem;
 }
