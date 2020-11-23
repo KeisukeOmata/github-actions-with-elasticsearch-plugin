@@ -40,7 +40,7 @@ $side-padding-sm: 1rem;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  .post-link {
+  .blog-link {
     margin-top: 5%;
     width: 47.5%;
     @include mq(sm) {
