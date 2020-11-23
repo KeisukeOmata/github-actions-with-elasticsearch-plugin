@@ -2,7 +2,7 @@ export type Api = {
   id: string;
   title: string;
   body: string;
-  publishedAt?: Date;
+  publishedAt?: string;
   category: {
     name: string
   };
