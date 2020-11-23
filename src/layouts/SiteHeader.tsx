@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { config } from "@src/foundations/site.config";
+import { Config } from "@src/foundations/site.config";
 import { ContentWrapper } from "@src/layouts/ContentWrapper";
 
 export const SiteHeader: React.FC = () => (
@@ -10,14 +10,14 @@ export const SiteHeader: React.FC = () => (
           <a className="site-header__logo-link">
             <img
               src="/logo.svg"
-              alt={config.siteMeta.title}
+              alt={Config.siteMeta.title}
               className="site-header__logo-img"
             />
           </a>
         </Link>
         {/* site.configのheaderLinksを表示 */}
         <div className="site-header__links">
-          {config.headerLinks.map((link, i) => {
+          {Config.headerLinks.map((link, i) => {
             // keyを作成
             const key = `header-link-${i}`;
             // サイト内リンクの場合

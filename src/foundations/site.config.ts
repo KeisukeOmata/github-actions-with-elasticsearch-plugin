@@ -1,13 +1,13 @@
-export const config = {
+export const Config = {
   siteMeta: {
     title: "Blog",
     copyright: "Keisuke Omata",
     description: "Blog using ISR.",
   },
-  // siteRoot:
-  //   process.env.NODE_ENV === "production"
-  //     ? "https://"
-  //     : "http://localhost:3000",
+  siteRoot:
+    process.env.NODE_ENV === "production"
+      ? "https://isr-nyi8wwy6k.vercel.app/"
+      : "http://localhost:3000",
   headerLinks: [
     // {
     //   title: "About",
