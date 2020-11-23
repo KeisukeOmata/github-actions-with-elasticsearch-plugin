@@ -2,7 +2,6 @@ import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { GetStaticProps, GetStaticPaths } from "next";
 import { Api } from '@src/types/api';
-import styles from '@src/layouts/index.module.scss'
 
 type Props = {
   blog: Api;
@@ -63,15 +62,15 @@ const BlogId: NextPage<Props> = ({ blog }) => {
   }
   // ビルドが完了しblogが参照できる
   return (
-    <main className={styles.main}>
-      <h1 className={styles.title}>{blog.title}</h1>
-      <p className={styles.publishedAt}>{blog.publishedAt}</p>
-      <p className={styles.category}>{blog.category.name}</p>
+    <main className="main">
+      <h1 className="title">{blog.title}</h1>
+      <p className="publishedAt">{blog.publishedAt}</p>
+      <p className="category">{blog.category.name}</p>
       <div
         dangerouslySetInnerHTML={{
           __html: `${blog.body}`,
         }}
-        className={styles.post}
+        className="post"
       />
     </main>
   );

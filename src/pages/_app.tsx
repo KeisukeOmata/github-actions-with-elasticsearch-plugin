@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app'
-import '@src/layouts/globals.css'
+import '@src/layouts/globals.scss'
 import 'minireset.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
