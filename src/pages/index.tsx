@@ -1,7 +1,10 @@
-import Link from 'next/link'
 import { NextPage } from 'next'
 import { GetStaticProps } from "next";
 import { Api } from '@src/types/api';
+import { Config } from "@src/foundations/site.config";
+import { ContentWrapper, UndoWrapForScroll } from "@src/layouts/ContentWrapper";
+import { HeadSEO } from "@src/layouts/HeadSEO";
+import { BlogList } from "@src/components/BlogList"
 
 type Props = {
   // Api型の配列
@@ -28,15 +31,28 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 const Home: NextPage<Props> = ({ blog }) => {
   return (
     <>
-      {blog.map(blog => (
-        <ul key={blog.id}>
-          <li >
-            <Link href={`blog/${blog.id}`}>
-              <a>{blog.title}</a>
-            </Link>
-          </li>
-        </ul>
-      ))}
+      <HeadSEO
+        title={Config.siteMeta.title}
+        description={Config.siteMeta.description}
+        path="/"
+        titleFlg={true}
+      />
+      {/* Top */}
+      <section className="home-top">
+        <ContentWrapper>
+          <h1 className="home-top_title">{Config.siteMeta.title}</h1>
+          <p className="home-top_description">{Config.siteMeta.description}</p>
+        </ContentWrapper>
+      </section>
+      {/* 記事一覧 */}
+      <section className="home-posts">
+        <ContentWrapper>
+          <div className="home-section-title-container">
+            <h2 className="home-section-title">Articles</h2>
+          </div>
+          <BlogList blogs={ blog as Api[]} />
+        </ContentWrapper>
+      </section>
     </>
   );
 }
