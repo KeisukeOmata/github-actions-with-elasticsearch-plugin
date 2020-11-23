@@ -9,7 +9,6 @@
     "type-check": "tsc --watch"
   },
   "dependencies": {
-    "@types/axios": "^0.14.0",
     "minireset.css": "^0.0.6",
     "next": "10.0.1",
     "react": "17.0.1",
