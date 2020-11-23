@@ -9,6 +9,7 @@
     "type-check": "tsc --watch"
   },
   "dependencies": {
+    "dayjs": "^1.9.6",
     "minireset.css": "^0.0.6",
     "next": "10.0.1",
     "react": "17.0.1",
