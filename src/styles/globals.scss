@@ -1,3 +1,5 @@
+// mixinを使用しているファイルは先にimportする
+@import "./_breakpoints";
 @import "./_index";
 @import "./_siteHeader";
 @import "./_siteFooter";
