@@ -1,8 +1,8 @@
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { GetStaticProps, GetStaticPaths } from "next";
-import { Api } from '../../types/api';
-import styles from '../../layouts/index.module.scss'
+import { Api } from '@src/types/api';
+import styles from '@src/layouts/index.module.scss'
 
 type Props = {
   blog: Api;

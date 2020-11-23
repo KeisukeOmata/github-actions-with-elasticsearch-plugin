@@ -20,7 +20,12 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    // @srcでファイルにアクセスできるようにする
+    "baseUrl": ".",
+    "paths": {
+      "@*": ["./*"]
+    },
   },
   "exclude": ["node_modules"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js"],

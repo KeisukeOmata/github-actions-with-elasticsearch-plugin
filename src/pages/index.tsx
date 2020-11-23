@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { NextPage } from 'next'
 import { GetStaticProps } from "next";
-import { Api } from '../types/api';
+import { Api } from '@src/types/api';
 
 type Props = {
   // Api型の配列
