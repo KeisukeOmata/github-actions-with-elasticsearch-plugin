@@ -1,6 +1,5 @@
 import type { AppProps } from 'next/app'
 import '@src/styles/globals.scss'
-import 'minireset.css'
 import Head from "next/head";
 import { Config } from "@src/foundations/site.config";
 import { SiteHeader } from "@src/layouts/SiteHeader";
