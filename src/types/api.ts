@@ -3,7 +3,7 @@ export type Api = {
   title: string;
   body: string;
   publishedAt?: string;
-  category: {
+  category?: {
     name: string
   };
 };
