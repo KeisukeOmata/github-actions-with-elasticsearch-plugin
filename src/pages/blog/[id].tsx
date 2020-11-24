@@ -65,7 +65,7 @@ const BlogId: NextPage<Props> = ({ blog }) => {
     <main className="main">
       <h1 className="title">{blog.title}</h1>
       <p className="publishedAt">{blog.publishedAt}</p>
-      <p className="category">{blog.category.name}</p>
+      <p className="category">{blog.category?.name}</p>
       <div
         dangerouslySetInnerHTML={{
           __html: `${blog.body}`,
