@@ -1,9 +1,16 @@
-// mixinを使用しているファイルは先にimportする
-@import "./_breakpoints";
-@import "./_index";
-@import "./_siteHeader";
-@import "./_siteFooter";
-@import "./_contentWrapper";
-@import "./_backTop";
-@import "./_error";
-@import "./_blogList";
+@import "./_utils";
+@import "./_root";
+@import "./_rootColor";
+
+// pages
+@import "./pages/_index";
+@import "./pages/_404";
+
+// components
+@import "./components/_blogList";
+@import "./components/_backTop";
+
+// layouts
+@import "./layouts/_siteHeader";
+@import "./layouts/_siteFooter";
+@import "./layouts/_contentWrapper";

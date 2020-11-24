@@ -6,6 +6,7 @@ import { HeadSEO } from "@src/layouts/HeadSEO";
 const Custom404: NextPage = () => {
   return (
     <>
+      {/* 404ページなのでインデックスしない */}
       <HeadSEO title="404 not found" noindex={true} />
       <div className="error">
         <ContentWrapper>
