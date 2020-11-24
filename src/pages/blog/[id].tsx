@@ -36,7 +36,9 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   // fallback: false 以外の場合、リダイレクト先が必要
   if (!data) {
     return {
+      // 404.tsxに遷移
       notFound: true,
+      // // リダイレクト先を指定
       // redirect: {
       //   destination: '/',
       //   permanent: false,
@@ -65,6 +67,7 @@ const BlogId: NextPage<Props> = ({ blog }) => {
     <main className="main">
       <h1 className="title">{blog.title}</h1>
       <p className="publishedAt">{blog.publishedAt}</p>
+      {/* null許容 */}
       <p className="category">{blog.category?.name}</p>
       <div
         dangerouslySetInnerHTML={{

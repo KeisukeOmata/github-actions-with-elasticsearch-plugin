@@ -40,12 +40,12 @@ const Home: NextPage<Props> = ({ blog }) => {
       {/* Top */}
       <section className="home-top">
         <ContentWrapper>
-          <h1 className="home-top_title">{Config.siteMeta.title}</h1>
-          <p className="home-top_description">{Config.siteMeta.description}</p>
+          <h1 className="home-top__title">{Config.siteMeta.title}</h1>
+          <p className="home-top__description">{Config.siteMeta.description}</p>
         </ContentWrapper>
       </section>
       {/* 記事一覧 */}
-      <section className="home-posts">
+      <section>
         <ContentWrapper>
           <div className="home-section-title-container">
             <h2 className="home-section-title">Articles</h2>

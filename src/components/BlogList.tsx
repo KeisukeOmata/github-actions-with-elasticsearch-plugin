@@ -13,11 +13,11 @@ const BlogLink: React.FC<{ blog: Api }> = (props) => {
     <>
       <article className="blog-link">
         <Link href={`blog/${id}`} passHref>
-          <a className="blog-link_main-link">
-            <h2 className="blog-link-title">{title}</h2>
+          <a className="blog-link__main-link">
+            <h2 className="blog-link__title">{title}</h2>
           </a>
         </Link>
-        <time dateTime={publishedAt} className="blog-link-time">
+        <time dateTime={publishedAt} className="blog-link__date">
           {dayjs(publishedAt).format('YYYY/MM/DD')}
         </time>
       </article>
@@ -47,7 +47,7 @@ export const BlogList: React.FC<{ blogs: Api[] }> = (props) => {
         <div className="blog-list-load">
           <button
             onClick={() => setDisplayBlogsCount(displayBlogsCount + 1)}
-            className="blog-list-load_button"
+            className="blog-list-load__button"
           >
             LOAD MORE
           </button>
