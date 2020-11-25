@@ -22,6 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <div className="wrapper">
         <SiteHeader />
         <Component {...pageProps} />
+        <div className="footer-top"></div>
         <SiteFooter />
       </div>
     </>
