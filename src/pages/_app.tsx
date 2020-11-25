@@ -19,11 +19,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
         />
       </Head>
-      <Head>
-      </Head>
-      <SiteHeader />
-      <Component {...pageProps} />
-      <SiteFooter />
+      <div className="wrapper">
+        <SiteHeader />
+        <Component {...pageProps} />
+        <SiteFooter />
+      </div>
     </>
   )
 }
