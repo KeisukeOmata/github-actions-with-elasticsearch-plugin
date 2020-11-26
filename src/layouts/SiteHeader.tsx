@@ -12,7 +12,7 @@ export const SiteHeader: React.FC = () => (
               src="/logo.svg"
               // スクリーンリーダーでWebページを読む人のためにimgのalt属性を指定する
               // 不要な画像にも alt="" を設定する
-              // SVGの場合はaria-label属性を指定、画像として使う場合はrole="img"を指定
+              // SVGの場合はaria-label属性を指定、画像として使う場合は role="img" を指定
               // SVGをボタンとして使う場合はbuttonタグで囲い、aria-label属性もbuttonで指定
               // <button><svg role="img" aria-label="説明"></svg></button>
               alt={Config.siteMeta.title}
