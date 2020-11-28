@@ -8,6 +8,9 @@
 
 // components
 @import "./components/_BlogList";
+@import "./components/_Space";
 
 // layouts
+@import "./layouts/_SiteFooter";
+@import "./layouts/_FixedFooter";
 @import "./layouts/_contentWrapper";
