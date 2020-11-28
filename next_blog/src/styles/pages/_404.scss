@@ -1,0 +1,23 @@
+.error {
+  padding: 3rem 0;
+  text-align: center;
+}
+.error__status {
+  font-size: 110px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.error__message {
+  color: var(--color-base-text-lighter);
+}
+.error__actions {
+  margin-top: 3rem;
+}
+
+.back-top {
+  font-size: 0.95rem;
+  padding: 0.7em 1.3em;
+  color: #fff;
+  border-radius: 2.5em;
+  background: var(--color-primary-background);
+}
