@@ -1,3 +1,9 @@
 @import "./_breakpoints";
 @import "./_root";
 @import "./_rootColor";
+
+// pages
+@import "./pages/_index";
+
+// components
+@import "./components/_blogList";
