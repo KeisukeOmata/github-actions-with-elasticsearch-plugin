@@ -29,6 +29,7 @@ next_blog/.env.local
 next_blog/.env.development.local
 next_blog/.env.test.local
 next_blog/.env.production.local
+next_blog/.env
 
 # vercel
 next_blog/.vercel
