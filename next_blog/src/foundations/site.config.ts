@@ -2,7 +2,7 @@ export const Config = {
   siteMeta: {
     title: "Blog",
     copyright: "Keisuke Omata",
-    description: "Blog using ISR.",
+    description: "Blog using ISR(Incremental Static Regeneration).",
   },
   siteRoot:
     process.env.NODE_ENV === "production"
