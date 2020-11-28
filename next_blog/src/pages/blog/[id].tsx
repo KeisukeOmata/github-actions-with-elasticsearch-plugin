@@ -2,6 +2,7 @@ import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { GetStaticProps, GetStaticPaths } from "next";
 import { Api } from '@src/types/api';
+import { ContentWrapper } from "@src/layouts/ContentWrapper";
 
 type Props = {
   blog: Api;
@@ -53,21 +54,29 @@ const Blog: NextPage<Props> = ({ blog }) => {
   const router = useRouter()
   if (router.isFallback) {
     // ビルド中なのでblogはundefinedのまま
-    return <div>Loading...</div>
+    return (
+      <>
+        <div>Loading...</div>
+      </>
+    )
   }
   // ビルドが完了しblogが参照できる
   return (
-    <main>
-      <h1>{blog.title}</h1>
-      <p>{blog.publishedAt}</p>
-      {/* nullを許容 */}
-      <p>{blog.category?.name}</p>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `${blog.body}`,
-        }}
-      />
-    </main>
+    <>
+      <div>
+        <ContentWrapper>
+          <h1>{blog.title}</h1>
+          <p>{blog.publishedAt}</p>
+          {/* nullを許容 */}
+          <p>{blog.category?.name}</p>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: `${blog.body}`,
+            }}
+          />
+        </ContentWrapper>
+      </div>
+    </>
   );
 }
 

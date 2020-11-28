@@ -2,7 +2,8 @@ import { NextPage } from 'next'
 import { GetStaticProps } from "next";
 import { Api } from '@src/types/api';
 import { Config } from "@src/foundations/site.config";
-import { BlogList } from "@src/components/BlogList"
+import { BlogList } from "@src/components/BlogList";
+import { ContentWrapper } from "@src/layouts/ContentWrapper";
 
 type Props = {
   blog: Api[];
@@ -30,15 +31,19 @@ const Home: NextPage<Props> = ({ blog }) => {
     <>
       {/* Top */}
       <section className="home-top">
-        <h1 className="home-top__title">{Config.siteMeta.title}</h1>
-        <p className="home-top__description">{Config.siteMeta.description}</p>
+        <ContentWrapper>
+          <h1 className="home-top__title">{Config.siteMeta.title}</h1>
+          <p className="home-top__description">{Config.siteMeta.description}</p>
+        </ContentWrapper>
       </section>
       {/* 記事一覧 */}
       <section>
-        <div className="home-section-title-container">
-          <h2 className="home-section-title">Articles</h2>
-        </div>
-        <BlogList blogs={ blog as Api[]} />
+        <ContentWrapper>
+          <div className="home-section-title-container">
+            <h2 className="home-section-title">Articles</h2>
+          </div>
+          <BlogList blogs={blog as Api[]} />
+        </ContentWrapper>
       </section>
     </>
   )
