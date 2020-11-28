@@ -1,10 +1,13 @@
 import { NextPage } from 'next'
 import Link from "next/link";
 import { ContentWrapper } from "@src/layouts/ContentWrapper";
+import { HeadSEO } from "@src/layouts/HeadSEO";
 
 const Custom404: NextPage = () => {
   return (
     <>
+      {/* 404ページなのでインデックスしない */}
+      <HeadSEO title="404 not found" noindex={true} />
       <div className="error">
         <ContentWrapper>
           <div className="error__status">404</div>
