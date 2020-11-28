@@ -1,1 +1,1 @@
-next_brog
+next_blog
