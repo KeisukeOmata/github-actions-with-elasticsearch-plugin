@@ -2,6 +2,7 @@ import { NextPage } from 'next'
 import { GetStaticProps } from "next";
 import { Api } from '@src/types/api';
 import { Config } from "@src/foundations/site.config";
+import { BlogList } from "@src/components/BlogList"
 
 type Props = {
   blog: Api[];
@@ -37,6 +38,7 @@ const Home: NextPage<Props> = ({ blog }) => {
         <div className="home-section-title-container">
           <h2 className="home-section-title">Articles</h2>
         </div>
+        <BlogList blogs={ blog as Api[]} />
       </section>
     </>
   )
