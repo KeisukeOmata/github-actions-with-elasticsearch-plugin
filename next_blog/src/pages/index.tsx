@@ -4,6 +4,7 @@ import { Api } from '@src/types/api';
 import { Config } from "@src/foundations/site.config";
 import { BlogList } from "@src/components/BlogList";
 import { ContentWrapper } from "@src/layouts/ContentWrapper";
+import { HeadSEO } from "@src/layouts/HeadSEO";
 
 type Props = {
   blog: Api[];
@@ -29,6 +30,12 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 const Home: NextPage<Props> = ({ blog }) => {
   return (
     <>
+      <HeadSEO
+        title={Config.siteMeta.title}
+        description={Config.siteMeta.description}
+        path="/"
+        titleFlg={true}
+      />
       {/* Top */}
       <section className="home-top">
         <ContentWrapper>
