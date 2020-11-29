@@ -56,7 +56,9 @@ const Blog: NextPage<Props> = ({ blog }) => {
     // ビルド中なのでblogはundefinedのまま
     return (
       <>
-        <div>Loading...</div>
+        <ContentWrapper>
+          <div>Loading...</div>
+        </ContentWrapper>
       </>
     )
   }
