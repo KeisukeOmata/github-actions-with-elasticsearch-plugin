@@ -2,7 +2,7 @@
   padding: 1rem 0;
   position: sticky;
   top: 0;
-  background: var(--color-base-background);
+  // background: var(--color-base-background);
   z-index: 99;
 }
 .site-header__inner {
@@ -22,6 +22,6 @@
   align-items: center;
 }
 .site-header__link {
-  margin-left: 1.5rem;
+  margin-right: 1.5rem;
   font-size: 0.95rem;
 }

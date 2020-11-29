@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Config } from "@src/foundations/site.config";
 import { ContentWrapper } from "@src/layouts/ContentWrapper";
+import { DarkMode } from "@src/components/DarkMode";
 
 export const SiteHeader: React.FC = () => (
   <header className="site-header">
@@ -40,6 +41,7 @@ export const SiteHeader: React.FC = () => (
               </a>
             );
           })}
+          <DarkMode />
         </div>
       </div>
     </ContentWrapper>
