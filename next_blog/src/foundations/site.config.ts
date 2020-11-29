@@ -6,7 +6,7 @@ export const Config = {
   },
   siteRoot:
     process.env.NODE_ENV === "production"
-      ? "https://isr-one.vercel.app"
+      ? "https://next-blog-navy.vercel.app"
       : "http://localhost:3000",
   headerLinks: [
     // {
