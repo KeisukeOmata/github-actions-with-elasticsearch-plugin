@@ -13,12 +13,14 @@ $side-padding-sm: 1rem;
   justify-content: space-between;
   flex-wrap: wrap;
   .blog-link {
-    margin-top: 5%;
-    width: 47.5%;
-    @include mq(sm) {
-      margin-top: 1.3rem;
-      width: 100%;
-    }
+    // margin-top: 5%;
+    // width: 47.5%;
+    // @include mq(sm) {
+    //   margin-top: 1.3rem;
+    //   width: 100%;
+    // }
+    margin-top: 1.3rem;
+    width: 100%;
   }
 }
 .blog-list-load {
