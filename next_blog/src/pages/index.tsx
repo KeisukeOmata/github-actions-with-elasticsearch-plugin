@@ -1,9 +1,10 @@
-import { NextPage } from 'next'
+import { NextPage } from 'next';
 import { GetStaticProps } from "next";
 import { Api } from '@src/types/api';
 import { Config } from "@src/foundations/site.config";
 import { BlogList } from "@src/components/BlogList";
-import { ContentWrapper } from "@src/layouts/ContentWrapper";
+import { ScrollableCategories } from "@src/components/ScrollableCategories";
+import { ContentWrapper, UndoWrapForScroll, } from "@src/layouts/ContentWrapper";
 import { HeadSEO } from "@src/layouts/HeadSEO";
 
 type Props = {
@@ -50,6 +51,19 @@ const Home: NextPage<Props> = ({ blog }) => {
             <h2 className="home-section-title">Articles</h2>
           </div>
           <BlogList blogs={blog as Api[]} />
+        </ContentWrapper>
+      </section>
+      {/* カテゴリ一覧 */}
+      <section className="home-members">
+        <ContentWrapper>
+          <div className="home-section-title-container">
+            <h2 className="home-section-title">Categories</h2>
+          </div>
+          <div className="home-members-container">
+            <UndoWrapForScroll>
+              <ScrollableCategories />
+            </UndoWrapForScroll>
+          </div>
         </ContentWrapper>
       </section>
     </>
