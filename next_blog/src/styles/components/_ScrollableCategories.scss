@@ -1,0 +1,43 @@
+.scrollable-categories {
+  display: flex;
+  // フレックスアイテムを先頭にまとめる
+  align-items: flex-start;
+  // 内容が収まらない場合はスクロール
+  overflow-x: scroll;
+  // スクロールバー用
+  padding-bottom: 1rem;
+  // スクロールが惰性付きになる
+  -webkit-overflow-scrolling: touch;
+  // スクロールの振る舞いを滑るようにする
+  scroll-behavior: smooth;
+  // x軸に固定
+  scroll-snap-type: x mandatory;
+  // カテゴリー右の余白
+  &:after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    // フレックスコンテナからはみ出す
+    flex-shrink: 0;
+  }
+  // スクロールバーを非表示
+  &::-webkit-scrollbar {
+    display: none;
+    -webkit-appearance: none;
+  }
+}
+.scrollable-category__link {
+  display: block;
+  // フレックスコンテナからはみ出す
+  flex-shrink: 0;
+  width: auto;
+  margin-right: 50px;
+  line-height: 1.5;
+  scroll-snap-align: center;
+}
+.scrollable-category__name {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+}

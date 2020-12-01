@@ -9,9 +9,10 @@
 // components
 @import "./components/_BlogList";
 @import "./components/_Space";
+@import "./components/_ScrollableCategories";
 
 // layouts
 @import "./layouts/_SiteHeader";
 @import "./layouts/_SiteFooter";
 @import "./layouts/_FixedFooter";
-@import "./layouts/_contentWrapper";
+@import "./layouts/_ContentWrapper";
