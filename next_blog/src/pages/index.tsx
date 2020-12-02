@@ -6,6 +6,7 @@ import { BlogList } from "@src/components/BlogList";
 import { ScrollableCategories } from "@src/components/ScrollableCategories";
 import { ContentWrapper, UndoWrapForScroll, } from "@src/layouts/ContentWrapper";
 import { HeadSEO } from "@src/layouts/HeadSEO";
+import { Space } from "@src/components/Space";
 
 type Props = {
   blog: Api[];
@@ -53,6 +54,7 @@ const Home: NextPage<Props> = ({ blog }) => {
           <BlogList blogs={blog as Api[]} />
         </ContentWrapper>
       </section>
+      <Space />
       {/* カテゴリ一覧 */}
       <section className="home-members">
         <ContentWrapper>
