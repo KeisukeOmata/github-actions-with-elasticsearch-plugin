@@ -1,4 +1,4 @@
-.scrollable-categories {
+.scrollableCategories {
   display: flex;
   padding-left: 1.6rem;
   // フレックスアイテムを先頭にまとめる
@@ -28,7 +28,7 @@
     -webkit-appearance: none;
   }
 }
-.scrollable-category__link {
+.scrollableCategory__link {
   display: block;
   // フレックスコンテナからはみ出す
   flex-shrink: 0;
@@ -37,7 +37,7 @@
   line-height: 1.5;
   scroll-snap-align: center;
 }
-.scrollable-category__name {
+.scrollableCategory__name {
   display: block;
   margin-top: 8px;
   font-size: 13px;

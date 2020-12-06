@@ -1,3 +1,4 @@
+import styles from "@src/styles/pages/index.module.scss";
 import { NextPage } from 'next';
 import { GetStaticProps } from "next";
 import { Api } from '@src/types/api';
@@ -6,7 +7,6 @@ import { BlogList } from "@src/components/BlogList";
 import { ScrollableCategories } from "@src/components/ScrollableCategories";
 import { ContentWrapper, UndoWrapForScroll, } from "@src/layouts/ContentWrapper";
 import { HeadSEO } from "@src/layouts/HeadSEO";
-import { Space } from "@src/components/Space";
 
 type Props = {
   blog: Api[];
@@ -39,29 +39,28 @@ const Home: NextPage<Props> = ({ blog }) => {
         titleFlg={true}
       />
       {/* Top */}
-      <section className="home-top">
+      <section className={styles.homeTop}>
         <ContentWrapper>
-          <h1 className="home-top__title">{Config.siteMeta.title}</h1>
-          <p className="home-top__description">{Config.siteMeta.description}</p>
+          <h1 className={styles.homeTop__title}>{Config.siteMeta.title}</h1>
+          <p className={styles.homeTop__description}>{Config.siteMeta.description}</p>
         </ContentWrapper>
       </section>
       {/* 記事一覧 */}
       <section>
         <ContentWrapper>
-          <div className="home-section-title-container">
-            <h2 className="home-section-title">Articles</h2>
+          <div className={styles.homeSectionTitleContainer}>
+            <h2 className={styles.homeSectionTitle}>Articles</h2>
           </div>
           <BlogList blogs={blog as Api[]} />
         </ContentWrapper>
       </section>
-      <Space />
       {/* カテゴリ一覧 */}
-      <section className="home-members">
+      <section className={styles.homeCategories}>
         <ContentWrapper>
-          <div className="home-section-title-container">
-            <h2 className="home-section-title">Categories</h2>
+          <div className={styles.homeSectionTitleContainer}>
+            <h2 className={styles.homeSectionTitle}>Categories</h2>
           </div>
-          <div className="home-members-container">
+          <div className={styles.homeCategoriesContainer}>
             <UndoWrapForScroll>
               <ScrollableCategories />
             </UndoWrapForScroll>

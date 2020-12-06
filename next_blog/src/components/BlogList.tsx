@@ -1,3 +1,4 @@
+import styles from "@src/styles/components/BlogList.module.scss";
 import { useState } from "react";
 import Link from "next/link";
 import { Api } from '@src/types/api';
@@ -11,22 +12,20 @@ const BlogLink: React.FC<{ blog: Api }> = (props) => {
   } = props.blog;
 
   return (
-    <>
-      <article className="blog-link">
-        <Link
-          key={`blog-${id}`}
-          href={`blog/${id}`}
-          passHref
-        >
-          <a className="blog-link__main-link">
-            <h2 className="blog-link__title">{title}</h2>
-          </a>
-        </Link>
-        <time dateTime={publishedAt} className="blog-link__date">
-          {dayjs(publishedAt).format('YYYY/MM/DD')}
-        </time>
-      </article>
-    </>
+    <article className={styles.blogLink}>
+      <Link
+        key={`blog-${id}`}
+        href={`blog/${id}`}
+        passHref
+      >
+        <a className={styles.blogLink__mainLink}>
+          <h2 className={styles.blogLink__title}>{title}</h2>
+        </a>
+      </Link>
+      <time dateTime={publishedAt} className={styles.blogLink__date}>
+        {dayjs(publishedAt).format('YYYY/MM/DD')}
+      </time>
+    </article>
   )
 }
 
@@ -40,13 +39,13 @@ export const BlogList: React.FC<{ blogs: Api[] }> = (props) => {
 
   if (!totalBlogsCount) {
     return (
-      <div className="blog-list-empty">No Blogs yet</div>
+      <div className={styles.blogListEmpty}>No Blogs yet</div>
     ) 
   }
 
   return (
     <>
-      <div className="blog-list">
+      <div className={styles.blogList}>
         {/* 文字列を変更せず、文字列の一部分を新しい文字列として返す */}
         {props.blogs.slice(0, blogsCount).map((blog, i) => (
           <BlogLink key={`post-item-${i}`} blog={blog} />
@@ -54,10 +53,10 @@ export const BlogList: React.FC<{ blogs: Api[] }> = (props) => {
       </div>
       {/* 未表示のブログがあればボタンを表示する */}
       {remainBlogs && (
-        <div className="blog-list-load">
+        <div className={styles.blogListLoad}>
           <button
             onClick={() => setBlogsCount(blogsCount + 1)}
-            className="blog-list-load__button"
+            className={styles.blogListLoad__Button}
           >
             LOAD MORE
           </button>

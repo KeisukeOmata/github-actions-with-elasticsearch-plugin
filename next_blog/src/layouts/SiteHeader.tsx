@@ -1,14 +1,15 @@
+import styles from "@src/styles/layouts/SiteHeader.module.scss";
 import Link from "next/link";
 import { Config } from "@src/foundations/site.config";
 import { ContentWrapper } from "@src/layouts/ContentWrapper";
 import { DarkMode } from "@src/components/DarkMode";
 
 export const SiteHeader: React.FC = () => (
-  <header className="site-header">
+  <header className={styles.siteHeader}>
     <ContentWrapper>
-      <div className="site-header__inner">
+      <div className={styles.siteHeader__inner}>
         <Link href="/" passHref>
-          <a className="site-header__logo-link">
+          <a className={styles.siteHeader__logoLink}>
             <img
               src="/logo.svg"
               // スクリーンリーダーでWebページを読む人のためにimgのalt属性を指定する
@@ -17,12 +18,12 @@ export const SiteHeader: React.FC = () => (
               // SVGをボタンとして使う場合はbuttonタグで囲い、aria-label属性もbuttonで指定
               // <button><svg role="img" aria-label="説明"></svg></button>
               alt={Config.siteMeta.title}
-              className="site-header__logo-img"
+              className={styles.siteHeader__logoImg}
             />
           </a>
         </Link>
         {/* site.configのheaderLinksを表示 */}
-        <div className="site-header__links">
+        <div className={styles.siteHeader__links}>
           {Config.headerLinks.map((link, i) => {
             // keyを作成
             const key = `header-link-${i}`;
@@ -30,13 +31,13 @@ export const SiteHeader: React.FC = () => (
             if (link.href.startsWith("/")) {
               return (
                 <Link key={key} href={link.href} passHref>
-                  <a className="site-header__link">{link.title}</a>
+                  <a className={styles.siteHeader__link}>{link.title}</a>
                 </Link>
               );
             }
             // サイト外リンクの場合
             return (
-              <a key={key} href={link.href} className="site-header__link">
+              <a key={key} href={link.href} className={styles.siteHeader__link}>
                 {link.title}
               </a>
             );
