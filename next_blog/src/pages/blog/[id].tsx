@@ -22,7 +22,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const id = context.params?.id;
   const key = {
-    headers: {'X-API-KEY': process.env.API_KEY},
+    headers: {'X-API-KEY': process.env.API_KEY as string},
   };
   const data = await fetch('https://isrbrog.microcms.io/api/v1/posts/' + id, key)
     .then(res => res.json())

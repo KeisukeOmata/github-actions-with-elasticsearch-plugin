@@ -14,7 +14,7 @@ type Props = {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const key = {
-    headers: {'X-API-KEY': process.env.API_KEY},
+    headers: {'X-API-KEY': process.env.API_KEY as string},
   };
   const data = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
     .then(res => res.json())
