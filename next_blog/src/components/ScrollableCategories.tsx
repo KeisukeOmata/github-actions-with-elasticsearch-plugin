@@ -6,13 +6,13 @@ export const ScrollableCategories: React.FC = () => {
     <div className="scrollable-categories">
       {categories.map((category, i) => (
         <Link
-          key={`scrollable-category-${i}`}
-          href="https://github.com/KeisukeOmata"
+          key={`category-${i}`}
+          href={`categories/${category.name}`}
           passHref
         >
-          <div className="scrollable-category__link">
+          <a className="scrollable-category__link">
             <div className="scrollable-category__name">{category.name}</div>
-          </div>
+          </a>
         </Link>
       ))}
     </div>
