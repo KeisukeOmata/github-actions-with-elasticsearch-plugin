@@ -20,7 +20,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const id = context.params.id;
+  const id = context.params?.id;
   const key = {
     headers: {'X-API-KEY': process.env.API_KEY},
   };
