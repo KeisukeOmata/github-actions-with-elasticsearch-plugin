@@ -13,7 +13,11 @@ const BlogLink: React.FC<{ blog: Api }> = (props) => {
   return (
     <>
       <article className="blog-link">
-        <Link href={`blog/${id}`} passHref>
+        <Link
+          key={`blog-${id}`}
+          href={`blog/${id}`}
+          passHref
+        >
           <a className="blog-link__main-link">
             <h2 className="blog-link__title">{title}</h2>
           </a>
