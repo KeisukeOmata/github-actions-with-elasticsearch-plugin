@@ -1,7 +1,7 @@
-import styles from "@src/styles/components/ScrollableCategories.module.scss";
-import Link from "next/link";
-import { categories } from "@src/foundations/categories";
-  
+import styles from '@src/styles/components/ScrollableCategories.module.scss'
+import Link from 'next/link'
+import { categories } from '@src/foundations/categories'
+
 export const ScrollableCategories: React.FC = () => {
   return (
     <div className={styles.scrollableCategories}>
@@ -12,10 +12,12 @@ export const ScrollableCategories: React.FC = () => {
           passHref
         >
           <a className={styles.scrollableCategory__link}>
-            <div className={styles.scrollableCategory__name}>{category.name}</div>
+            <div className={styles.scrollableCategory__name}>
+              {category.name}
+            </div>
           </a>
         </Link>
       ))}
     </div>
-  );
-};
+  )
+}

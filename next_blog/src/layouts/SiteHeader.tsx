@@ -1,8 +1,8 @@
-import styles from "@src/styles/layouts/SiteHeader.module.scss";
-import Link from "next/link";
-import { Config } from "@src/foundations/site.config";
-import { ContentWrapper } from "@src/layouts/ContentWrapper";
-import { DarkMode } from "@src/components/DarkMode";
+import styles from '@src/styles/layouts/SiteHeader.module.scss'
+import Link from 'next/link'
+import { Config } from '@src/foundations/site.config'
+import { ContentWrapper } from '@src/layouts/ContentWrapper'
+import { DarkMode } from '@src/components/DarkMode'
 
 export const SiteHeader: React.FC = () => (
   <header className={styles.siteHeader}>
@@ -26,21 +26,21 @@ export const SiteHeader: React.FC = () => (
         <div className={styles.siteHeader__links}>
           {Config.headerLinks.map((link, i) => {
             // keyを作成
-            const key = `header-link-${i}`;
+            const key = `header-link-${i}`
             // サイト内リンクの場合
-            if (link.href.startsWith("/")) {
+            if (link.href.startsWith('/')) {
               return (
                 <Link key={key} href={link.href} passHref>
                   <a className={styles.siteHeader__link}>{link.title}</a>
                 </Link>
-              );
+              )
             }
             // サイト外リンクの場合
             return (
               <a key={key} href={link.href} className={styles.siteHeader__link}>
                 {link.title}
               </a>
-            );
+            )
           })}
           <DarkMode />
         </div>

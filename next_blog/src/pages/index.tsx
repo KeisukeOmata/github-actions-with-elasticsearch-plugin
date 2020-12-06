@@ -1,24 +1,24 @@
-import styles from "@src/styles/pages/index.module.scss";
-import { NextPage } from 'next';
-import { GetStaticProps } from "next";
-import { Api } from '@src/types/api';
-import { Config } from "@src/foundations/site.config";
-import { BlogList } from "@src/components/BlogList";
-import { ScrollableCategories } from "@src/components/ScrollableCategories";
-import { ContentWrapper, UndoWrapForScroll, } from "@src/layouts/ContentWrapper";
-import { HeadSEO } from "@src/layouts/HeadSEO";
+import styles from '@src/styles/pages/index.module.scss'
+import { NextPage } from 'next'
+import { GetStaticProps } from 'next'
+import { Api } from '@src/types/api'
+import { Config } from '@src/foundations/site.config'
+import { BlogList } from '@src/components/BlogList'
+import { ScrollableCategories } from '@src/components/ScrollableCategories'
+import { ContentWrapper, UndoWrapForScroll } from '@src/layouts/ContentWrapper'
+import { HeadSEO } from '@src/layouts/HeadSEO'
 
 type Props = {
-  blog: Api[];
-};
+  blog: Api[]
+}
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const key = {
-    headers: {'X-API-KEY': process.env.API_KEY as string},
-  };
+    headers: { 'X-API-KEY': process.env.API_KEY as string },
+  }
   const data = await fetch('https://isrbrog.microcms.io/api/v1/posts', key)
-    .then(res => res.json())
-    .catch(() => null);
+    .then((res) => res.json())
+    .catch(() => null)
   return {
     props: {
       blog: data.contents,
@@ -26,8 +26,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     // revalidateで指定した秒数の間は静的アセットを返す
     // 秒数が経過したら、次のリクエストで一旦はキャッシュを返しつつ、バックグラウンドでもう一度そのページを構築
     revalidate: 1,
-  };
-};
+  }
+}
 
 const Home: NextPage<Props> = ({ blog }) => {
   return (
@@ -42,7 +42,9 @@ const Home: NextPage<Props> = ({ blog }) => {
       <section className={styles.homeTop}>
         <ContentWrapper>
           <h1 className={styles.homeTop__title}>{Config.siteMeta.title}</h1>
-          <p className={styles.homeTop__description}>{Config.siteMeta.description}</p>
+          <p className={styles.homeTop__description}>
+            {Config.siteMeta.description}
+          </p>
         </ContentWrapper>
       </section>
       {/* 記事一覧 */}
