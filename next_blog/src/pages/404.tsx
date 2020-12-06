@@ -1,3 +1,4 @@
+import styles from "@src/styles/pages/404.module.scss";
 import { NextPage } from 'next'
 import Link from "next/link";
 import { ContentWrapper } from "@src/layouts/ContentWrapper";
@@ -8,13 +9,13 @@ const Custom404: NextPage = () => {
     <>
       {/* 404ページなのでインデックスしない */}
       <HeadSEO title="404 not found" noindex={true} />
-      <div className="error">
+      <div className={styles.error}>
         <ContentWrapper>
-          <div className="error__status">404</div>
-          <h1 className="error__message">Page not found...</h1>
-          <nav className="error__actions">
+          <div className={styles.error__status}>404</div>
+          <h1 className={styles.error__message}>Page not found...</h1>
+          <nav className={styles.error__actions}>
             <Link href="/" passHref>
-              <a className="back-top">Topへ</a>
+              <a className={styles.backTop}>Topへ</a>
             </Link>
           </nav>
         </ContentWrapper>

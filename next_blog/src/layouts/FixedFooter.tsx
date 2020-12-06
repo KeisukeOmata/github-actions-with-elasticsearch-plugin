@@ -1,7 +1,9 @@
-export const FixedFooter: React.FC<{ children: React.ReactNode }> = ( props ) => {
+import styles from "@src/styles/layouts/FixedFooter.module.scss";
+
+export const FixedFooter: React.FC<{ children: React.ReactNode }> = (props) => {
   return (
     <>
-      <div className="fixed-footer">
+      <div className={styles.fixedFooter}>
         {props.children}
       </div>
     </>

@@ -1,26 +1,35 @@
-.home-top {
+@import '../Breakpoints';
+
+.homeTop {
   padding: 2.7rem 0 2rem;
 }
-.home-top__title {
+.homeTop__title {
   font-size: 3.1rem;
   line-height: 1.4;
   @include mq(xs) {
     font-size: 2.6rem;
   }
 }
-.home-top__description {
+.homeTop__description {
   margin-top: 0.4rem;
   font-size: 1.2rem;
   color: var(--color-base-text-lighter);
 }
 
-.home-section-title-container {
+.homeSectionTitleContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0.3rem 0;
   border-bottom: solid 1px var(--color-border);
 }
-.home-section-title {
+.homeSectionTitle {
   font-size: 1.7rem;
+}
+
+.homeCategories {
+  padding: 3rem 0;
+}
+.homeCategoriesContainer {
+  margin-top: 2rem;
 }
