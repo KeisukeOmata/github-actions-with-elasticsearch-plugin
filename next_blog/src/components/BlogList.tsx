@@ -1,23 +1,15 @@
-import styles from "@src/styles/components/BlogList.module.scss";
-import { useState } from "react";
-import Link from "next/link";
-import { Api } from '@src/types/api';
-import dayjs from "dayjs";
+import styles from '@src/styles/components/BlogList.module.scss'
+import { useState } from 'react'
+import Link from 'next/link'
+import { Api } from '@src/types/api'
+import dayjs from 'dayjs'
 
-const BlogLink: React.FC<{ blog: Api }> = (props) => { 
-  const {
-    id,
-    title,
-    publishedAt,
-  } = props.blog;
+const BlogLink: React.FC<{ blog: Api }> = (props) => {
+  const { id, title, publishedAt } = props.blog
 
   return (
     <article className={styles.blogLink}>
-      <Link
-        key={`blog-${id}`}
-        href={`blog/${id}`}
-        passHref
-      >
+      <Link key={`blog-${id}`} href={`blog/${id}`} passHref>
         <a className={styles.blogLink__mainLink}>
           <h2 className={styles.blogLink__title}>{title}</h2>
         </a>
@@ -31,16 +23,14 @@ const BlogLink: React.FC<{ blog: Api }> = (props) => {
 
 export const BlogList: React.FC<{ blogs: Api[] }> = (props) => {
   // ブログの初期表示数
-  const [blogsCount, setBlogsCount] = useState<number>(1);
+  const [blogsCount, setBlogsCount] = useState<number>(1)
   // ブログの総数
-  const totalBlogsCount = props.blogs?.length || 0;
+  const totalBlogsCount = props.blogs?.length || 0
   // 未表示のブログ数
-  const remainBlogs = totalBlogsCount - blogsCount > 0;
+  const remainBlogs = totalBlogsCount - blogsCount > 0
 
   if (!totalBlogsCount) {
-    return (
-      <div className={styles.blogListEmpty}>No Blogs yet</div>
-    ) 
+    return <div className={styles.blogListEmpty}>No Blogs yet</div>
   }
 
   return (

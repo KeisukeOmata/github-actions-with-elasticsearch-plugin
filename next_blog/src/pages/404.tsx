@@ -1,8 +1,8 @@
-import styles from "@src/styles/pages/404.module.scss";
+import styles from '@src/styles/pages/404.module.scss'
 import { NextPage } from 'next'
-import Link from "next/link";
-import { ContentWrapper } from "@src/layouts/ContentWrapper";
-import { HeadSEO } from "@src/layouts/HeadSEO";
+import Link from 'next/link'
+import { ContentWrapper } from '@src/layouts/ContentWrapper'
+import { HeadSEO } from '@src/layouts/HeadSEO'
 
 const Custom404: NextPage = () => {
   return (

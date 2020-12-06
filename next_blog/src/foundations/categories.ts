@@ -1,21 +1,21 @@
 type Category = {
-  name: string;
+  name: string
 }
 
 export const categories: Category[] = [
   {
-    name: "Next.js",
+    name: 'Next.js',
   },
   {
-    name: "React",
+    name: 'React',
   },
   {
-    name: "TypeScript",
+    name: 'TypeScript',
   },
   {
-    name: "ISR",
+    name: 'ISR',
   },
   {
-    name: "node.js",
+    name: 'node.js',
   },
-];
+]

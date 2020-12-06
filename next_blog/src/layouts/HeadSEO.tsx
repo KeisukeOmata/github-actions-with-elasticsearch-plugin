@@ -1,34 +1,27 @@
-import Head from "next/head";
-import { Config } from "@src/foundations/site.config";
+import Head from 'next/head'
+import { Config } from '@src/foundations/site.config'
 
 type Props = {
-  title: string;
-  path?: string;
-  description?: string;
-  ogImageUrl?: string;
-  noindex?: boolean;
-  titleFlg?: boolean;
-};
+  title: string
+  path?: string
+  description?: string
+  ogImageUrl?: string
+  noindex?: boolean
+  titleFlg?: boolean
+}
 
 export const HeadSEO: React.FC<Props> = (props) => {
-  const {
-    path,
-    title,
-    description,
-    ogImageUrl,
-    noindex,
-    titleFlg,
-  } = props;
-  const pageUrl = `${Config.siteRoot}${path || ""}`;
-  
+  const { path, title, description, ogImageUrl, noindex, titleFlg } = props
+  const pageUrl = `${Config.siteRoot}${path || ''}`
+
   return (
     <Head>
       <title>
         {titleFlg
-          // titleFlgがtrueの場合、propsのtitleを使う
-          ? title
-          // titleFlgがtrue以外の場合、propsのtitleまたはコンフィグのtitleを使う
-          : `${title} | ${Config.siteMeta.title}`}
+          ? // titleFlgがtrueの場合、propsのtitleを使う
+            title
+          : // titleFlgがtrue以外の場合、propsのtitleまたはコンフィグのtitleを使う
+            `${title} | ${Config.siteMeta.title}`}
       </title>
       <meta property="og:title" content={title} />
       <meta property="og:url" content={pageUrl} />
