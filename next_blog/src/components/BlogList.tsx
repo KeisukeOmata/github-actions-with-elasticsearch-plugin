@@ -56,7 +56,7 @@ export const BlogList: React.FC<{ blogs: Api[] }> = (props) => {
         <div className={styles.blogListLoad}>
           <button
             onClick={() => setBlogsCount(blogsCount + 1)}
-            className={styles.blogListLoad__Button}
+            className={styles.blogListLoad__button}
           >
             LOAD MORE
           </button>
