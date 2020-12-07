@@ -6,7 +6,7 @@ import { SiteHeader } from '@src/layouts/SiteHeader'
 import { SiteFooter } from '@src/layouts/SiteFooter'
 import { FixedFooter } from '@src/layouts/FixedFooter'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
       <Head>
