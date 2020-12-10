@@ -1,7 +1,17 @@
-/// <reference types="jest" />
+import React from 'react'
+import { SiteHeader } from 'layouts/SiteHeader'
+import { cleanup, render, screen } from '@testing-library/react'
 
-import Home from '../pages/index'
+// 各テスト実行後にレンダーしたコンポーネントをアンマウントする
+afterEach(cleanup)
 
-it('Home ページコンポーネントが存在している', () => {
-  expect(Home).toBeTruthy()
+it('SiteHeaderコンポーネントが存在している', () => {
+  expect(SiteHeader).toBeTruthy()
+})
+
+it('「GitHub」のリンクが有効である', () => {
+  render(<SiteHeader />)
+  expect(screen.getByText('GitHub').getAttribute('href')).toBe(
+    'https://github.com/KeisukeOmata/next_blog'
+  )
 })

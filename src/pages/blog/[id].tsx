@@ -1,8 +1,9 @@
+import React from 'react'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { GetStaticProps, GetStaticPaths } from 'next'
-import { Api } from '@src/types/api'
-import { ContentWrapper } from '@src/layouts/ContentWrapper'
+import { Api } from 'types/api'
+import { ContentWrapper } from 'layouts/ContentWrapper'
 
 type Props = {
   blog: Api

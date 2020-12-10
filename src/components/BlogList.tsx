@@ -1,7 +1,8 @@
-import styles from '@src/styles/components/BlogList.module.scss'
+import React from 'react'
+import styles from 'styles/components/BlogList.module.scss'
 import { useState } from 'react'
 import Link from 'next/link'
-import { Api } from '@src/types/api'
+import { Api } from 'types/api'
 import dayjs from 'dayjs'
 
 const BlogLink: React.FC<{ blog: Api }> = (props) => {

@@ -1,10 +1,11 @@
-import '@src/styles/globals.scss'
+import React from 'react'
+import 'styles/globals.scss'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { Config } from '@src/foundations/site.config'
-import { SiteHeader } from '@src/layouts/SiteHeader'
-import { SiteFooter } from '@src/layouts/SiteFooter'
-import { FixedFooter } from '@src/layouts/FixedFooter'
+import { Config } from 'foundations/site.config'
+import { SiteHeader } from 'layouts/SiteHeader'
+import { SiteFooter } from 'layouts/SiteFooter'
+import { FixedFooter } from 'layouts/FixedFooter'
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (

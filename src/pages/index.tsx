@@ -1,12 +1,13 @@
-import styles from '@src/styles/pages/index.module.scss'
+import React from 'react'
+import styles from 'styles/pages/index.module.scss'
 import { NextPage } from 'next'
 import { GetStaticProps } from 'next'
-import { Api } from '@src/types/api'
-import { Config } from '@src/foundations/site.config'
-import { BlogList } from '@src/components/BlogList'
-import { ScrollableCategories } from '@src/components/ScrollableCategories'
-import { ContentWrapper, UndoWrapForScroll } from '@src/layouts/ContentWrapper'
-import { HeadSEO } from '@src/layouts/HeadSEO'
+import { Api } from 'types/api'
+import { Config } from 'foundations/site.config'
+import { BlogList } from 'components/BlogList'
+import { ScrollableCategories } from 'components/ScrollableCategories'
+import { ContentWrapper, UndoWrapForScroll } from 'layouts/ContentWrapper'
+import { HeadSEO } from 'layouts/HeadSEO'
 
 type Props = {
   blog: Api[]

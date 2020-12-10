@@ -1,4 +1,5 @@
-import styles from '@src/styles/layouts/ContentWrapper.module.scss'
+import React from 'react'
+import styles from 'styles/layouts/ContentWrapper.module.scss'
 
 export const ContentWrapper: React.FC<{ children: React.ReactNode }> = (
   props

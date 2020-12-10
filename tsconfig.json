@@ -37,13 +37,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    // @srcでファイルにアクセスできるようにする
-    "baseUrl": ".",
-    "paths": {
-      "@*": [
-        "./*"
-      ]
-    },
+    // srcでファイルにアクセスできるようにする
+    "baseUrl": "src",
+    // "paths": {
+    //   "@*": [
+    //     "./*"
+    //   ]
+    // },
   },
   "exclude": [
     "node_modules"
