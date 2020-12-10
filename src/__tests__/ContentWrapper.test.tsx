@@ -1,7 +1,7 @@
 /// <reference types="jest" />
 
-import Home from '../pages/index'
+import { ContentWrapper } from '../layouts/ContentWrapper'
 
 it('Home ページコンポーネントが存在している', () => {
-  expect(Home).toBeTruthy()
+  expect(ContentWrapper).toBeTruthy()
 })
