@@ -1,4 +1,5 @@
-import styles from '@src/styles/layouts/FixedFooter.module.scss'
+import React from 'react'
+import styles from 'styles/layouts/FixedFooter.module.scss'
 
 export const FixedFooter: React.FC<{ children: React.ReactNode }> = (props) => {
   return (

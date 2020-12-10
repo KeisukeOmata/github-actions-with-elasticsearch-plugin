@@ -1,8 +1,9 @@
-import styles from '@src/styles/layouts/SiteHeader.module.scss'
+import React from 'react'
+import styles from 'styles/layouts/SiteHeader.module.scss'
 import Link from 'next/link'
-import { Config } from '@src/foundations/site.config'
-import { ContentWrapper } from '@src/layouts/ContentWrapper'
-import { DarkMode } from '@src/components/DarkMode'
+import { Config } from '../foundations/site.config'
+import { ContentWrapper } from 'layouts/ContentWrapper'
+import { DarkMode } from 'components/DarkMode'
 
 export const SiteHeader: React.FC = () => (
   <header className={styles.siteHeader}>

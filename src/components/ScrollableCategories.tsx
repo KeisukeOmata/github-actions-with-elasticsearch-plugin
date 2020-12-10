@@ -1,6 +1,7 @@
-import styles from '@src/styles/components/ScrollableCategories.module.scss'
+import React from 'react'
+import styles from 'styles/components/ScrollableCategories.module.scss'
 import Link from 'next/link'
-import { categories } from '@src/foundations/categories'
+import { categories } from 'foundations/categories'
 
 export const ScrollableCategories: React.FC = () => {
   return (
