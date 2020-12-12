@@ -5,4 +5,4 @@ describe('タイトルのテスト', () => {
   })
 })
 
-// export {}
+export {}
