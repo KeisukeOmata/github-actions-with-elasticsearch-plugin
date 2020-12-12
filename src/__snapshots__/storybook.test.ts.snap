@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots SiteHeader Show Site Header 1`] = `
+<header
+  className="siteHeader"
+>
+  <div
+    className="contentWrapper"
+  >
+    <div
+      className="siteHeader__inner"
+    >
+      <a
+        className="siteHeader__logoLink"
+        href="/"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        <img
+          alt="Blog"
+          className="siteHeader__logoImg"
+          src="/logo.svg"
+        />
+      </a>
+      <div
+        className="siteHeader__links"
+      >
+        <a
+          className="siteHeader__link"
+          href="https://twitter.com/mete0la"
+        >
+          Twitter
+        </a>
+        <a
+          className="siteHeader__link"
+          href="https://github.com/KeisukeOmata/next_blog"
+        >
+          GitHub
+        </a>
+        <button
+          className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M10 2c-1.82 0-3.53.5-5 1.35C7.99 5.08 10 8.3 10 12s-2.01 6.92-5 8.65C6.47 21.5 8.18 22 10 22c5.52 0 10-4.48 10-10S15.52 2 10 2z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+`;
