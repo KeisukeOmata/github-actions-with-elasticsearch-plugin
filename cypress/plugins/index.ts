@@ -15,7 +15,6 @@
 /**
  * @type {Cypress.PluginConfig}
  */
-// 使っていない引数を削除して ES Modules の記述に変更
 export default (): void => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
