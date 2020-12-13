@@ -22,6 +22,11 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         />
         <link rel="manifest" href="/manifest.json" />
         <link rel="manifest" href="manifest.webmanifest" />
+        <script
+          async
+          src="https://unpkg.com/pwacompat"
+          crossOrigin="anonymous"
+        ></script>
         <link rel="icon" type="image/png" href="pwa.png" sizes="128x128" />
       </Head>
       <FixedFooter>
