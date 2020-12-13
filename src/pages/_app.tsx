@@ -20,6 +20,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
         />
+        <link rel="manifest" href="/manifest.json" />
       </Head>
       <FixedFooter>
         <SiteHeader />
