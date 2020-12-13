@@ -1,7 +1,10 @@
 {
+  "name": "next_blog",
+  "short_name": "blog",
+  "description": "Blog using ISR(Incremental Static Regeneration).",
   "theme_color": "#2196f3",
   "background_color": "#2196f3",
-  "display": "browser",
+  "display": "standalone",
   "scope": "/",
   "start_url": "/",
   "icons": [
@@ -10,5 +13,6 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "splash_pages": null
 }
