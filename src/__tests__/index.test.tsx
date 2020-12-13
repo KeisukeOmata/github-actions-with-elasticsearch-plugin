@@ -1,5 +1,5 @@
 import React from 'react'
-import { SiteHeader } from 'layouts/SiteHeader'
+import { SiteHeader } from '../layouts/SiteHeader'
 import { cleanup, render, screen } from '@testing-library/react'
 // cypressとの競合を回避
 import { expect } from '@jest/globals'
