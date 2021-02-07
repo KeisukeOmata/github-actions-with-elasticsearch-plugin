@@ -3,8 +3,8 @@ import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { GetStaticProps, GetStaticPaths } from 'next'
-import { Api } from 'types/api'
-import { ContentWrapper } from 'layouts/ContentWrapper'
+import { Api } from 'lib/type'
+import { ContentWrapper } from 'components/layouts/ContentWrapper'
 
 type Props = {
   categories: Api[]

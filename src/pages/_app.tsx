@@ -2,10 +2,10 @@ import React from 'react'
 import 'styles/globals.scss'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { Config } from '../foundations/site.config'
-import { SiteHeader } from '../layouts/SiteHeader'
-import { SiteFooter } from '../layouts/SiteFooter'
-import { FixedFooter } from '../layouts/FixedFooter'
+import { Config } from 'lib/site.config'
+import { SiteHeader } from 'components/layouts/SiteHeader'
+import { SiteFooter } from 'components/layouts/SiteFooter'
+import { FixedFooter } from 'components/layouts/FixedFooter'
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (

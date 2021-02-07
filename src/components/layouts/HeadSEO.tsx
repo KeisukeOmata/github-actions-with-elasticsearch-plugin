@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import { Config } from 'foundations/site.config'
+import { Config } from 'lib/site.config'
 
 type Props = {
   title: string

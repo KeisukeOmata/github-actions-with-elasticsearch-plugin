@@ -1,4 +1,4 @@
-@import "./Breakpoints";
+@import 'styles/Breakpoints';
 
 :root {
   --color-base-background: #fff;
@@ -34,8 +34,8 @@ body {
   word-break: break-word;
   // 単語の途中でも改行する
   word-wrap: break-word;
-  font-family: "Inter", "BlinkMacSystemFont", "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans", Meiryo, sans-serif;
+  font-family: 'Inter', 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN',
+    'Hiragino Sans', Meiryo, sans-serif;
 }
 
 img {
@@ -96,11 +96,11 @@ button {
   // 0.25秒
   transition: 0.25s;
   padding: 0;
-  margin: 0;  
+  margin: 0;
 }
 // 押下時の青い枠線を消す
 button:focus {
-	outline:0;
+  outline: 0;
 }
 
 // footer固定
