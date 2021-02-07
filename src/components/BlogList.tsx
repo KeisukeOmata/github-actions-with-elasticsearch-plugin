@@ -2,7 +2,7 @@ import React from 'react'
 import styles from 'styles/components/BlogList.module.scss'
 import { useState } from 'react'
 import Link from 'next/link'
-import { Api } from 'types/api'
+import { Api } from 'lib/type'
 import dayjs from 'dayjs'
 
 const BlogLink: React.FC<{ blog: Api }> = (props) => {

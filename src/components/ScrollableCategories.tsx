@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from 'styles/components/ScrollableCategories.module.scss'
 import Link from 'next/link'
-import { categories } from 'foundations/categories'
+import { categories } from 'lib/categories'
 
 export const ScrollableCategories: React.FC = () => {
   return (
